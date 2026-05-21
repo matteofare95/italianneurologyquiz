@@ -588,28 +588,37 @@ function renderScoreList(listId, emptyId, entries, showDate) {
 /* ─────────────────────────────────────────────────────────────
   11. STAFF RESET
    ─────────────────────────────────────────────────────────────── */
+async function resetAllScores() {
+  const snapshot = await db.collection('scores').get();
+  const batch = db.batch();
+  snapshot.forEach((doc) => {
+    batch.delete(doc.ref);
+  });
+  await batch.commit();
+}
+
 function initResetButton() {
   const btn = document.getElementById('btn-reset');
 
-  btn.addEventListener('click', () => {
-    const pwd = window.prompt(
-      'STAFF ONLY\n\nEnter password to reset all scores:'
-    );
-    if (!pwd) return;
-    if (pwd !== CONFIG.resetPassword) {
-      alert('Incorrect password.');
-      return;
-    }
-    const confirmed = window.confirm(
-      '⚠️ This will permanently delete ALL quiz scores from this device.\n\nAre you sure?'
-    );
-    if (confirmed) {
-      localStorage.removeItem(STORAGE_KEY);
-      renderHomeLeaderboard();
-      alert('All scores have been reset.');
-    }
-  });
-
+  btn.addEventListener('click', async () => {
+  const pwd = window.prompt(
+    'STAFF ONLY\n\nEnter password to reset all scores:'
+  );
+  if (!pwd) return;
+  if (pwd !== CONFIG.resetPassword) {
+    alert('Incorrect password.');
+    return;
+  }
+  const confirmed = window.confirm(
+    '⚠️ This will permanently delete ALL quiz scores from the server.\n\nAre you sure?'
+  );
+  if (confirmed) {
+    await resetAllScores();
+    await renderHomeLeaderboard();
+    alert('All scores have been reset.');
+  }
+});
+	
   // Hidden keyboard shortcut: Ctrl + Shift + R  (alternative for staff on keyboard)
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.shiftKey && e.key === 'R') {
@@ -617,7 +626,6 @@ function initResetButton() {
     }
   });
 }
-
 
 /* ─────────────────────────────────────────────────────────────
   12. UTILITY
