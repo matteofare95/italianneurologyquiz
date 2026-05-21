@@ -54,12 +54,13 @@ const QUESTIONS = [
    2. CONFIG
    ─────────────────────────────────────────────────────────────── */
 const CONFIG = {
-  pointsPerCorrect:  1,        // points awarded for a correct answer
+  pointsPerCorrect:  100,        // points awarded for a correct answer
   feedbackDelay:     1500,       // ms before advancing to next question
   maxLeaderboardEntries: 2000,     // max stored scores
   shuffleQuestions:  true,       // randomise order each game
   shuffleChoices:    true,      // if true, randomise choice order (keep false unless you re-map correctIndex)
-  questionTimeLimitMs: 10000  // 10 seconds for question
+  questionTimeLimitMs: 10000,  // 10 seconds for question
+  resetPassword: 'Cannella2026'
 };
 
 const STORAGE_KEY = 'neurologyQuizScores'; // localStorage key
@@ -75,7 +76,8 @@ const state = {
   score: 0,
   correctCount: 0,
   answered: false,    // prevents double-tap
-  timerId: null
+  timerId: null,
+  questionStartTime: 0 // timestamp in ms
 };
 
 
@@ -302,6 +304,7 @@ function startQuiz() {
 /** Render the current question onto the quiz screen. */
 function renderQuestion() {
   const q = state.questions[state.currentIndex];
+  state.questionStartTime = performance.now();
   state.answered = false;
 
   // Progress bar
@@ -395,8 +398,18 @@ function handleAnswer(chosenIndex) {
 
   // Update score
   if (isCorrect) {
-    state.score        += CONFIG.pointsPerCorrect;
-    state.correctCount += 1;
+  state.correctCount += 1;
+
+  const now = performance.now();
+  const elapsedMs = now - state.questionStartTime;
+  const limit = CONFIG.questionTimeLimitMs || 10000; // fallback
+
+  // fattore da 1 (0 ms) a 0 (limite ms)
+  let factor = 1 - elapsedMs / limit;
+  if (factor < 0) factor = 0;
+
+  const gained = Math.round(CONFIG.pointsPerCorrect * factor);
+  state.score += gained;
   }
 
   // Visual feedback on all buttons
@@ -420,7 +433,7 @@ function handleAnswer(chosenIndex) {
   if (isCorrect) {
     fb.className    = 'feedback-bar correct';
     fbIcon.textContent = '✓';
-    fbText.textContent = 'Correct! +' + CONFIG.pointsPerCorrect + ' pts';
+    fbText.textContent = 'Correct! +${gained} pts';
   } else {
     fb.className    = 'feedback-bar incorrect';
     fbIcon.textContent = '✗';
@@ -575,10 +588,17 @@ function renderScoreList(listId, emptyId, entries, showDate) {
 function initResetButton() {
   const btn = document.getElementById('btn-reset');
 
-  // Simple click with confirmation
   btn.addEventListener('click', () => {
+    const pwd = window.prompt(
+      'STAFF ONLY\n\nEnter password to reset all scores:'
+    );
+    if (!pwd) return;
+    if (pwd !== CONFIG.resetPassword) {
+      alert('Incorrect password.');
+      return;
+    }
     const confirmed = window.confirm(
-      '⚠️ STAFF ONLY\n\nThis will permanently delete ALL quiz scores from this device.\n\nAre you sure?'
+      '⚠️ This will permanently delete ALL quiz scores from this device.\n\nAre you sure?'
     );
     if (confirmed) {
       localStorage.removeItem(STORAGE_KEY);
