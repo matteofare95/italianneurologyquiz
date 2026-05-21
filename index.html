@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Italian Neurology Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN 1 · HOME
+  ════════════════════════════════════════════ -->
+  <div id="screen-home" class="screen active">
+    <div class="home-bg-grid"></div>
+    <div class="home-inner">
+
+      <header class="home-header">
+        <div class="badge">SIN 2025 · Milano</div>
+        <h1 class="home-title">Italian<br>Neurology<br>Quiz</h1>
+        <p class="home-subtitle">Test your clinical knowledge</p>
+      </header>
+
+      <button id="btn-start" class="btn btn-primary btn-xl">
+        <span class="btn-label">Start</span>
+        <span class="btn-arrow">→</span>
+      </button>
+
+      <!-- Mini leaderboard preview (top 5 all-time) -->
+      <section class="home-leaderboard">
+        <h2 class="leaderboard-section-title">🏆 All-Time Top 5</h2>
+        <ol id="home-scores-list" class="scores-preview-list"></ol>
+      </section>
+
+    </div>
+
+    <!-- Staff reset button (long-press or triple-tap via JS) -->
+    <button id="btn-reset" class="btn-reset-staff" title="Staff: Reset all data">⚙</button>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN 2 · NICKNAME
+  ════════════════════════════════════════════ -->
+  <div id="screen-nickname" class="screen">
+    <div class="screen-inner narrow">
+
+      <button class="btn-back" id="btn-back-home">← Back</button>
+
+      <div class="nickname-content">
+        <div class="icon-circle">✦</div>
+        <h2 class="screen-title">Enter your name</h2>
+        <p class="screen-subtitle">Max 20 characters. No spaces required.</p>
+
+        <div class="input-group">
+          <input
+            type="text"
+            id="nickname-input"
+            class="nickname-field"
+            placeholder="e.g. Dr. Rossi"
+            maxlength="20"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+          />
+          <span id="nickname-error" class="field-error" aria-live="polite"></span>
+        </div>
+
+        <button id="btn-begin-quiz" class="btn btn-primary btn-xl">
+          <span class="btn-label">Start Quiz</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN 3 · QUIZ
+  ════════════════════════════════════════════ -->
+  <div id="screen-quiz" class="screen">
+    <div class="screen-inner">
+
+      <!-- Progress bar -->
+      <div class="quiz-topbar">
+        <div class="quiz-meta">
+          <span id="quiz-player-name" class="quiz-player"></span>
+          <span id="quiz-score-display" class="quiz-score">0 pts</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div class="quiz-counter">
+          Question <span id="q-current">1</span> / <span id="q-total">10</span>
+        </div>
+      </div>
+
+      <!-- Question card -->
+      <div id="question-card" class="question-card">
+        <p id="question-text" class="question-text"></p>
+      </div>
+
+      <!-- Answer choices -->
+      <div id="choices-grid" class="choices-grid">
+        <!-- Rendered by JS: 4 buttons, data-index="0..3" -->
+      </div>
+
+      <!-- Feedback overlay -->
+      <div id="feedback-bar" class="feedback-bar hidden">
+        <span id="feedback-icon" class="feedback-icon"></span>
+        <span id="feedback-text" class="feedback-text"></span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN 4 · RESULT
+  ════════════════════════════════════════════ -->
+  <div id="screen-result" class="screen">
+    <div class="screen-inner narrow">
+
+      <div class="result-content">
+        <div class="result-badge" id="result-badge">⭐</div>
+        <h2 class="result-name" id="result-name"></h2>
+        <div class="result-score-block">
+          <span class="result-score-label">Your Score</span>
+          <span class="result-score-value" id="result-score"></span>
+        </div>
+        <p class="result-correct" id="result-correct"></p>
+        <p class="result-rank-msg" id="result-rank-msg"></p>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-view-leaderboard" class="btn btn-secondary btn-lg">View Leaderboard</button>
+        <button id="btn-new-player" class="btn btn-primary btn-lg">New Player →</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCREEN 5 · LEADERBOARD
+  ════════════════════════════════════════════ -->
+  <div id="screen-leaderboard" class="screen">
+    <div class="screen-inner">
+
+      <div class="lb-header">
+        <button class="btn-back" id="btn-back-from-lb">← Home</button>
+        <h2 class="screen-title">Leaderboard</h2>
+
+        <div class="tab-bar" role="tablist">
+          <button class="tab active" id="tab-today" role="tab" data-tab="today">Today</button>
+          <button class="tab" id="tab-alltime" role="tab" data-tab="alltime">All-Time</button>
+        </div>
+      </div>
+
+      <div id="lb-today" class="lb-panel active">
+        <ol id="lb-today-list" class="lb-list"></ol>
+        <p id="lb-today-empty" class="lb-empty hidden">No scores yet for today. Be the first!</p>
+      </div>
+
+      <div id="lb-alltime" class="lb-panel">
+        <ol id="lb-alltime-list" class="lb-list"></ol>
+        <p id="lb-alltime-empty" class="lb-empty hidden">No scores recorded yet.</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
