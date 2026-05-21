@@ -2,7 +2,7 @@
    ITALIAN NEUROLOGY QUIZ — script.js
    ─────────────────────────────────────────────────────────────
    SECTIONS
-   1. QUESTIONS  ← paste your questions here
+   1. QUESTIONS
    2. CONFIG
    3. STATE
    4. LOCALSTORAGE HELPERS
@@ -34,76 +34,6 @@ const QUESTIONS = [
     choices: ["Serotonin", "Acetylcholine", "Dopamine", "Norepinephrine"],
     correctIndex: 2
   },
-  {
-    question: "The blood–brain barrier is formed mainly by which cell type?",
-    choices: ["Microglia", "Astrocytes", "Oligodendrocytes", "Ependymal cells"],
-    correctIndex: 1
-  },
-  {
-    question: "Which cranial nerve is responsible for the afferent limb of the pupillary light reflex?",
-    choices: ["CN II", "CN III", "CN V", "CN VII"],
-    correctIndex: 0
-  },
-  {
-    question: "The triad of dementia, ataxia, and urinary incontinence is characteristic of which condition?",
-    choices: [
-      "Alzheimer's disease",
-      "Normal pressure hydrocephalus",
-      "Frontotemporal dementia",
-      "Lewy body dementia"
-    ],
-    correctIndex: 1
-  },
-  {
-    question: "Which mutation is most commonly associated with familial amyotrophic lateral sclerosis (fALS)?",
-    choices: ["LRRK2", "SOD1", "PARK2", "HTT"],
-    correctIndex: 1
-  },
-  {
-    question: "Wallerian degeneration refers to degeneration of the axon segment that is:",
-    choices: [
-      "Proximal to the site of injury",
-      "Distal to the site of injury",
-      "Within the cell body",
-      "Across the synapse"
-    ],
-    correctIndex: 1
-  },
-  {
-    question: "Which EEG pattern is classically associated with absence epilepsy?",
-    choices: [
-      "3 Hz spike-and-wave discharges",
-      "High-voltage slow waves",
-      "Periodic sharp complexes",
-      "Beta bursts"
-    ],
-    correctIndex: 0
-  },
-  {
-    question: "The first-line preventive treatment for cluster headache is:",
-    choices: ["Sumatriptan", "Topiramate", "Verapamil", "Lithium"],
-    correctIndex: 2
-  },
-  {
-    question: "Internuclear ophthalmoplegia (INO) results from a lesion in which structure?",
-    choices: [
-      "Medial rectus muscle",
-      "Medial longitudinal fasciculus (MLF)",
-      "Abducens nucleus",
-      "Oculomotor nerve"
-    ],
-    correctIndex: 1
-  },
-  {
-    question: "Which area of the brain is primarily associated with Broca's aphasia?",
-    choices: [
-      "Posterior superior temporal gyrus",
-      "Angular gyrus",
-      "Inferior frontal gyrus (pars triangularis/opercularis)",
-      "Supramarginal gyrus"
-    ],
-    correctIndex: 2
-  }
   /*
     ── PASTE ADDITIONAL QUESTIONS BELOW THIS LINE ──
     Example template:
@@ -122,9 +52,10 @@ const QUESTIONS = [
 const CONFIG = {
   pointsPerCorrect:  100,        // points awarded for a correct answer
   feedbackDelay:     1500,       // ms before advancing to next question
-  maxLeaderboardEntries: 50,     // max stored scores
+  maxLeaderboardEntries: 2000,     // max stored scores
   shuffleQuestions:  true,       // randomise order each game
-  shuffleChoices:    false,      // if true, randomise choice order (keep false unless you re-map correctIndex)
+  shuffleChoices:    true,      // if true, randomise choice order (keep false unless you re-map correctIndex)
+  questionTimeLimitMs: 10000  // 10 seconds for question
 };
 
 const STORAGE_KEY = 'neurologyQuizScores'; // localStorage key
@@ -140,6 +71,7 @@ const state = {
   score: 0,
   correctCount: 0,
   answered: false,    // prevents double-tap
+  timerId: null
 };
 
 
@@ -399,6 +331,22 @@ function renderQuestion() {
   // Hide feedback bar
   const fb = document.getElementById('feedback-bar');
   fb.className = 'feedback-bar hidden';
+
+// --- TIMER FOR EACH QUESTION: reset + start ---
+  if (state.timerId) {
+  clearTimeout(state.timerId);
+  state.timerId = null;
+}
+
+// Starts a 10 s timer if configured
+  if (CONFIG.questionTimeLimitMs && CONFIG.questionTimeLimitMs > 0) {
+  state.timerId = setTimeout(() => {
+    // if no answer is given, it is ticked "wrong"
+    if (!state.answered) {
+      handleAnswer(-1);
+      }
+    }, CONFIG.questionTimeLimitMs);
+  }
 }
 
 /**
@@ -407,6 +355,11 @@ function renderQuestion() {
  */
 function handleAnswer(chosenIndex) {
   if (state.answered) return; // block double-tap
+	
+  if (state.timerId) {
+    clearTimeout(state.timerId);
+    state.timerId = null;
+  }
   state.answered = true;
 
   const q = state.questions[state.currentIndex];
