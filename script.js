@@ -433,7 +433,7 @@ function handleAnswer(chosenIndex) {
   if (isCorrect) {
     fb.className    = 'feedback-bar correct';
     fbIcon.textContent = '✓';
-    fbText.textContent = 'Correct! +' + gained + ' pts';
+    fbText.textContent = 'Correct! +'gained' pts';
   } else {
     fb.className    = 'feedback-bar incorrect';
     fbIcon.textContent = '✗';
