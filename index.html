@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Firebase App (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <!-- Firestore (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCENA1p7lvJWNJcsMHUcEOGO339HwCxwpE",
+      authDomain: "italian-neurology-quiz.firebaseapp.com",
+      projectId: "italian-neurology-quiz",
+      storageBucket: "italian-neurology-quiz.firebasestorage.app",
+      messagingSenderId: "935953925699",
+      appId: "1:935953925699:web:558e7bb34e1f9c0ebc36f6"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+    // Initialize Firestore
+    const db = firebase.firestore();
+  </script>
 </head>
 <body>
 
