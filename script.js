@@ -54,7 +54,7 @@ const QUESTIONS = [
    2. CONFIG
    ─────────────────────────────────────────────────────────────── */
 const CONFIG = {
-  pointsPerCorrect:  100,        // points awarded for a correct answer
+  pointsPerCorrect:  1,        // points awarded for a correct answer
   feedbackDelay:     1500,       // ms before advancing to next question
   maxLeaderboardEntries: 2000,     // max stored scores
   shuffleQuestions:  true,       // randomise order each game
