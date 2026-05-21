@@ -32,7 +32,9 @@ const QUESTIONS = [
   {
     question: "Which neurotransmitter is primarily depleted in Parkinson's disease?",
     choices: ["Serotonin", "Acetylcholine", "Dopamine", "Norepinephrine"],
-    correctIndex: 2
+    correctIndex: 2,
+	image: "img/parkinson_dopamine.png",
+    imageAlt: "Illustration of dopamine pathways in Parkinson's disease"
   },
   /*
     ── PASTE ADDITIONAL QUESTIONS BELOW THIS LINE ──
@@ -40,7 +42,9 @@ const QUESTIONS = [
     ,{
       question: "Your question text here?",
       choices: ["Option A", "Option B", "Option C", "Option D"],
-      correctIndex: 0   // 0 = A, 1 = B, 2 = C, 3 = D
+      correctIndex: 0,   // 0 = A, 1 = B, 2 = C, 3 = D
+	  image: "img/image_name", //delete field if not used
+      imageAlt: "description"  //delete field if not used
     }
   */
 ];
@@ -311,6 +315,20 @@ function renderQuestion() {
   // Question text
   document.getElementById('question-text').textContent = q.question;
 
+ // Question image
+  const imgWrapper = document.getElementById('question-image-wrapper');
+  const imgEl = document.getElementById('question-image');
+
+  if (q.image) {
+    imgWrapper.style.display = 'block';
+    imgEl.src = q.image;
+    imgEl.alt = q.imageAlt || 'Question illustration';
+  } else {
+    imgWrapper.style.display = 'none';
+    imgEl.removeAttribute('src');
+    imgEl.alt = '';
+  }
+	
   // Build answer buttons
   const grid = document.getElementById('choices-grid');
   grid.innerHTML = '';
