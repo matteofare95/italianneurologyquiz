@@ -332,6 +332,16 @@ function renderQuestion() {
   const fb = document.getElementById('feedback-bar');
   fb.className = 'feedback-bar hidden';
 
+	// Reset timebar
+  const timeBar = document.getElementById('time-bar-fill');
+  if (timeBar) {
+    timeBar.style.transition = 'none';
+    timeBar.style.transform = 'scaleX(1)';
+    void timeBar.offsetWidth;
+    timeBar.style.transition = `transform ${CONFIG.questionTimeLimitMs}ms linear`;
+    timeBar.style.transform = 'scaleX(0)';
+  }
+	
 // --- TIMER FOR EACH QUESTION: reset + start ---
   if (state.timerId) {
   clearTimeout(state.timerId);
