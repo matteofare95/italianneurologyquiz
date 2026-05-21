@@ -191,6 +191,13 @@ function initHomeScreen() {
     showScreen('nickname');
     document.getElementById('nickname-input').focus();
   });
+
+  document
+  .getElementById('btn-view-leaderboard-home')
+  .addEventListener('click', () => {
+    showScreen('leaderboard');
+    renderLeaderboard();
+  });
 }
 
 /**
