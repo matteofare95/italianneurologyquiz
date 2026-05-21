@@ -106,6 +106,23 @@ async function loadScores() {
   return results;
 }
 
+// Given an array { nickname, score, isoDate } it gets
+// only the best score for nickname, ordered DESC per score
+function collapseBestScorePerNickname(entries) {
+  const bestMap = new Map(); // nickname -> { nickname, score, isoDate }
+
+  entries.forEach((entry) => {
+    const existing = bestMap.get(entry.nickname);
+    if (!existing || entry.score > existing.score) {
+      bestMap.set(entry.nickname, entry);
+    }
+  });
+
+  const collapsed = Array.from(bestMap.values());
+  collapsed.sort((a, b) => b.score - a.score);
+  return collapsed;
+}
+
 /**
  * Save a new score entry, then trim to max entries sorted by score DESC.
  * @param {string} nickname
@@ -125,18 +142,23 @@ async function saveScore(nickname, score) {
  * Return scores for today (local date), sorted by score DESC.
  */
 async function getTodayScores() {
-  const all = await loadScores();
+  const raw = await loadScores();
+  const collapsed = collapseBestScorePerNickname(raw);
   const todayStr = new Date().toLocaleDateString();
-  return all.filter((entry) => {
+  const todayOnly = collapsed.filter((entry) => {
     return new Date(entry.isoDate).toLocaleDateString() === todayStr;
   });
+  return todayOnly.slice(0, CONFIG.maxLeaderboardEntries);
 }
 
 /**
  * Return all scores, sorted by score DESC.
  */
 async function getAllTimeScores() {
-  return await loadScores();
+  const raw = await loadScores();
+  const collapsed = collapseBestScorePerNickname(raw);
+  // opzionale: applica il limite maxLeaderboardEntries anche qui
+  return collapsed.slice(0, CONFIG.maxLeaderboardEntries);
 }
 
 /**
