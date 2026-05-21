@@ -510,6 +510,19 @@ html, body {
   letter-spacing: -0.01em;
 }
 
+#question-image-wrapper {
+  margin: 12px 0 16px 0;
+  text-align: center;
+}
+
+#question-image {
+  max-width: 100%;
+  max-height: 220px; /* regola a gusto per il tablet */
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
 /* Choices grid */
 .choices-grid {
   display: grid;
