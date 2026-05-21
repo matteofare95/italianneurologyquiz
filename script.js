@@ -82,21 +82,28 @@ const state = {
 
 
 /* ─────────────────────────────────────────────────────────────
-   4. LOCALSTORAGE HELPERS
+   4. FIRESTORE HELPERS
    ─────────────────────────────────────────────────────────────── */
 
-/**
- * Load all saved scores from localStorage.
- * Returns an array of { nickname, score, isoDate }.
+/*Read all scores from Firestore, DESC ordered
  */
-function loadScores() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch (e) {
-    console.warn('Could not load scores:', e);
-    return [];
-  }
+async function loadScores() {
+  const snapshot = await db
+    .collection('scores')
+    .orderBy('score', 'desc')
+    .limit(CONFIG.maxLeaderboardEntries)
+    .get();
+
+  const results = [];
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    results.push({
+      nickname: data.nickname,
+      score: data.score,
+      isoDate: data.isoDate
+    });
+  });
+  return results;
 }
 
 /**
@@ -104,40 +111,32 @@ function loadScores() {
  * @param {string} nickname
  * @param {number} score
  */
-function saveScore(nickname, score) {
-  const scores = loadScores();
-  scores.push({
+async function saveScore(nickname, score) {
+  const isoDate = new Date().toISOString();
+
+  await db.collection('scores').add({
     nickname: nickname,
     score: score,
-    isoDate: new Date().toISOString()  // e.g. "2025-06-12T14:32:00.000Z"
+    isoDate: isoDate
   });
-  // Sort descending by score
-  scores.sort((a, b) => b.score - a.score);
-  // Trim to max
-  const trimmed = scores.slice(0, CONFIG.maxLeaderboardEntries);
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
-  } catch (e) {
-    console.warn('Could not save score:', e);
-  }
 }
 
 /**
  * Return scores for today (local date), sorted by score DESC.
  */
-function getTodayScores() {
-  const todayStr = new Date().toLocaleDateString(); // locale-aware date string
-  return loadScores().filter(entry => {
+async function getTodayScores() {
+  const all = await loadScores();
+  const todayStr = new Date().toLocaleDateString();
+  return all.filter((entry) => {
     return new Date(entry.isoDate).toLocaleDateString() === todayStr;
   });
-  // Already sorted from loadScores() (which sorts on save)
 }
 
 /**
  * Return all scores, sorted by score DESC.
  */
-function getAllTimeScores() {
-  return loadScores();
+async function getAllTimeScores() {
+  return await loadScores();
 }
 
 /**
@@ -152,9 +151,8 @@ function formatDate(isoDate) {
  * Compute the rank of a just-submitted score among all-time scores.
  * Returns the 1-based rank, or null if not found.
  */
-function getRankOfScore(score) {
-  const all = getAllTimeScores();
-  const pos = all.findIndex(e => e.score === score);
+function getRankOfScore(score, allScores) {
+  const pos = allScores.findIndex((e) => e.score === score);
   return pos >= 0 ? pos + 1 : null;
 }
 
@@ -198,9 +196,10 @@ function initHomeScreen() {
 /**
  * Render top-5 all-time scores in the home screen preview.
  */
-function renderHomeLeaderboard() {
+async function renderHomeLeaderboard() {
   const list = document.getElementById('home-scores-list');
-  const top5 = getAllTimeScores().slice(0, 5);
+  const all = await getAllTimeScores();
+  const top5 = all.slice(0, 5);
   list.innerHTML = '';
 
   if (top5.length === 0) {
@@ -458,12 +457,13 @@ function handleAnswer(chosenIndex) {
    ─────────────────────────────────────────────────────────────── */
 
 /** Called when all questions have been answered. */
-function endQuiz() {
+async function endQuiz() {
   // Persist the score
-  saveScore(state.nickname, state.score);
+  await saveScore(state.nickname, state.score);
 
   // Compute rank
-  const rank = getRankOfScore(state.score);
+  const allScores = await getAllTimeScores();
+  const rank = getRankOfScore(state.score, allScores);
 
   // Decide emoji badge based on performance
   const pct = state.correctCount / state.questions.length;
@@ -527,23 +527,26 @@ function initLeaderboardScreen() {
 }
 
 /** Build and render both leaderboard panels. */
-function renderLeaderboard() {
+async function renderLeaderboard() {
   // Default to today tab
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-today').classList.add('active');
   document.getElementById('lb-today').classList.add('active');
   document.getElementById('lb-alltime').classList.remove('active');
 
+  const today = await getTodayScores();
+  const all = await getAllTimeScores();
+  
   renderScoreList(
     'lb-today-list',
     'lb-today-empty',
-    getTodayScores(),
+    today,
     true   // show date? false for today (redundant), true for all-time
   );
   renderScoreList(
     'lb-alltime-list',
     'lb-alltime-empty',
-    getAllTimeScores(),
+    all,
     true
   );
 }
