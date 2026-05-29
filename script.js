@@ -39,7 +39,7 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/amaducci_portrait",
-    imageAlt: "Black-and-white portrait photograph of Luigi Amaducci"
+    imageAlt: "Portrait photograph of Luigi Amaducci"
   },
   {
     question: "In which year was the Italian Society of Neurology (Società Italiana di Neurologia, SIN) founded as an independent society?",
@@ -53,7 +53,7 @@ const questions = [
     choices: ["Contursi", "Eboli", "Tufariello", "Battipaglia"],
     correctIndex: 0,
     image: "img/campania_map",
-    imageAlt: "Map of the Campania region in southern Italy, with the town of Contursi Terme highlighted"
+    imageAlt: "Map of the Campania region in southern Italy"
   },
   {
     question: "Which Italian scientist developed the \"Black Reaction\" staining method that revolutionized the study of the nervous system?",
@@ -65,7 +65,7 @@ const questions = [
     ],
     correctIndex: 0,
     image: "img/golgi_staining",
-    imageAlt: "Microscopic image of neurons stained using the Golgi \"Black Reaction\" technique, showing dendritic arborizations in dark silhouette"
+    imageAlt: "Microscopic image of neurons stained using the Golgi \"Black Reaction\" technique"
   },
   {
     question: "Which Italian scientist discovered the Nerve Growth Factor (NGF), leading to a Nobel Prize in 1986?",
@@ -76,7 +76,7 @@ const questions = [
       "Lucio Bini"
     ],
     correctIndex: 2,
-    image: "img/levi_montalcini_lab",
+    image: "img/montalcini_lab",
     imageAlt: "Portrait photograph of Rita Levi-Montalcini in her laboratory, surrounded by microscopes and scientific equipment"
   },
   {
@@ -88,8 +88,8 @@ const questions = [
       "Rigidity"
     ],
     correctIndex: 0,
-    image: "img/mingazzini_maneuver",
-    imageAlt: "Portrait of Giovanni Mingazzini alongside a clinical illustration of a patient holding arms extended horizontally with eyes closed, performing the Mingazzini test"
+    image: "img/mingazzini_sign",
+    imageAlt: "Representation of the Mingazzini I maneuver, to assess subtle strength changes in the upper limbs"
   },
   {
     question: "Which Italian neurologist is credited with founding the integrated model of a university neurological clinic and neurological institute in Pavia?",
@@ -101,7 +101,7 @@ const questions = [
     ],
     correctIndex: 0,
     image: "img/mondino_institute",
-    imageAlt: "Historical photograph of the façade of the Mondino Neurological Institute in Pavia"
+    imageAlt: "Photograph of the façade of the Mondino Neurological Institute in Pavia"
   },
   {
     question: "Which Italian researcher collaborated with Alois Alzheimer and co-authored the first descriptions of the histopathological hallmarks — neuritic plaques and neurofibrillary tangles — of Alzheimer's disease?",
@@ -113,7 +113,7 @@ const questions = [
     ],
     correctIndex: 0,
     image: "img/alzheimer_plaques_tangles",
-    imageAlt: "Histopathological microscopy image showing amyloid plaques and neurofibrillary tangles in brain tissue, as described by Perusini and Alzheimer"
+    imageAlt: "Histopathological microscopy image showing amyloid plaques and neurofibrillary tangles in brain tissue"
   },
   {
     question: "Marchiafava-Bignami disease is a rare, progressive neurological disorder characterized by demyelination and necrosis of the corpus callosum. It was historically associated with the consumption of what specific substance?",
@@ -124,8 +124,8 @@ const questions = [
       "Heavy metal industrial toxins"
     ],
     correctIndex: 1,
-    image: "img/marchiafava_bignami_mri",
-    imageAlt: "Brain MRI (axial FLAIR sequence) showing signal abnormality and necrosis of the corpus callosum in a patient with Marchiafava-Bignami disease"
+    image: "img/marchiafava_mri",
+    imageAlt: "Brain MRI showing signal abnormality and necrosis of the corpus callosum in a patient with Marchiafava-Bignami disease"
   },
   {
     question: "In 1949, Giuseppe Moruzzi and H.W. Magoun published landmark research that transformed our understanding of arousal and wakefulness. Which brainstem system did they describe?",
@@ -137,7 +137,7 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/sleep_eeg",
-    imageAlt: "Polysomnography EEG tracing showing different stages of sleep and wakefulness, illustrating the role of the Reticular Activating System"
+    imageAlt: "Polysomnography EEG tracing showing different stages of sleep and wakefulness"
   },
   {
     question: "Which Italian physician and anatomist first described the pons in the brainstem?",
@@ -149,7 +149,7 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/brainstem_pons",
-    imageAlt: "Anatomical illustration of the human brainstem in lateral view, with the pons (pons Varolii) highlighted and labeled"
+    imageAlt: "Anatomical illustration of the human brainstem, with the pons highlighted and labeled"
   },
   {
     question: "Which Italian neurologist co-developed electroconvulsive therapy (ECT)?",
@@ -186,7 +186,7 @@ const questions = [
     question: "In which Italian city was electroconvulsive therapy (ECT) first performed in 1938?",
     choices: ["Milan", "Turin", "Rome", "Naples"],
     correctIndex: 2,
-    image: "img/sapienza_neurology",
+    image: "img/neurologia_sapienza",
     imageAlt: "Historical photograph of the façade of the Istituto di Neurologia, Sapienza University — Policlinico Umberto I, Rome"
   },
   {
@@ -198,7 +198,7 @@ const questions = [
       "Giuseppe Moruzzi"
     ],
     correctIndex: 0,
-    image: "img/visual_cortex_pathways",
+    image: "img/visual_pathways",
     imageAlt: "Illustration of the occipital cortex and visual pathways, with the primary visual cortex (V1) highlighted in the posterior pole of the brain"
   },
   {
@@ -211,7 +211,6 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/head_turning_sign",
-    imageAlt: "Clinical illustration of a patient turning their head toward a caregiver during a cognitive assessment, demonstrating the Head-Turning Sign"
   },
   {
     question: "Angelo Mosso, a 19th-century Italian physiologist in Turin, invented a device that recorded changes in brain blood flow during mental activity — a principle that foreshadows which modern neuroimaging technique?",
@@ -223,7 +222,7 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/mosso_portrait",
-    imageAlt: "Portrait photograph of Angelo Mosso alongside an illustration or photograph of his human circulation balance device used to measure cerebral blood flow"
+    imageAlt: "Portrait photograph of Angelo Mosso"
   },
   {
     question: "Which Italian physician first argued that epilepsy results from excessive cortical neuronal discharge, rather than supernatural causes?",
@@ -234,8 +233,8 @@ const questions = [
       "Leonardo Bianchi"
     ],
     correctIndex: 0,
-    image: "img/tamburini_epilepsy",
-    imageAlt: "Portrait of Augusto Tamburini alongside a schematic illustration of the cerebral cortex showing an epileptic discharge spreading from the motor cortex"
+    image: "img/tamburini_portrait",
+    imageAlt: "Portrait of Augusto Tamburini"
   },
   {
     question: "Which Italian neurologist is notable for his early descriptions of what is now recognized as Parkinson's disease in Italy, as well as for his systematic work on tendon reflexes?",
@@ -271,7 +270,7 @@ const questions = [
     ],
     correctIndex: 1,
     image: "img/bisiach_duomo_neglect",
-    imageAlt: "Split illustration of Piazza del Duomo in Milan: the right half is shown in full detail while the left half is faded or blank, representing the spatial neglect experienced by Bisiach's patients in their mental imagery"
+    imageAlt: "Split illustration of Piazza del Duomo in Milan: the right half is shown in full detail while the left half is faded"
   },
   {
     question: "Which Italian neurologist made seminal contributions to the study of aphasia, apraxia, and agnosia, establishing himself as a leading figure in European neuropsychology?",
@@ -282,7 +281,7 @@ const questions = [
       "Camillo Golgi"
     ],
     correctIndex: 1,
-    image: "img/de_renzi_portrait",
+    image: "img/derenzi_portrait",
     imageAlt: "Portrait photograph of Ennio De Renzi, Italian neuropsychologist"
   },
   {
@@ -294,8 +293,8 @@ const questions = [
       "Beniamino Guidetti"
     ],
     correctIndex: 0,
-    image: "img/lombroso_portrait",
-    imageAlt: "Historical portrait photograph of Cesare Lombroso, Italian physician and criminologist, associated with the early neurological school in Turin"
+    image: "img/lombroso_painting",
+    imageAlt: "Historical portrait painting of Cesare Lombroso, Italian physician and criminologist"
   },
   {
     question: "Who is the current President of the Italian Society of Neurology (Società Italiana di Neurologia, SIN)?",
