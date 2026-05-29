@@ -624,9 +624,7 @@ function renderQuestion() {
 
   if (q.image) {
     imgWrapper.style.display = 'block';
-    imgEl.src = q.image.includes(".")
- 		 ? q.image
- 		 : `img/${q.image}.jpeg`;
+    imgEl.src = q.image
     imgEl.alt = q.imageAlt || 'Question illustration';
   } else {
     imgWrapper.style.display = 'none';
