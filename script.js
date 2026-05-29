@@ -38,21 +38,21 @@ const QUESTIONS = [
       "Primary headaches"
     ],
     correctIndex: 1,
-    image: "img/amaducci_portrait",
+    image: "img/amaducci_portrait.jpeg",
     imageAlt: "Portrait photograph of Luigi Amaducci"
   },
   {
     question: "In which year was the Italian Society of Neurology (Società Italiana di Neurologia, SIN) founded as an independent society?",
     choices: ["1873", "1907", "1950", "1971"],
     correctIndex: 1,
-    image: "img/sin_historical_document",
+    image: "img/sin_historical_document.jpeg",
     imageAlt: "Historical founding document of the Italian Society of Neurology (SIN), dated 1907"
   },
   {
     question: "From which Italian city did the family originate in which the first pathogenic SNCA (alpha-synuclein) variant was identified?",
     choices: ["Contursi", "Eboli", "Tufariello", "Battipaglia"],
     correctIndex: 0,
-    image: "img/campania_map",
+    image: "img/campania_map.jpeg",
     imageAlt: "Map of the Campania region in southern Italy"
   },
   {
@@ -64,7 +64,7 @@ const QUESTIONS = [
       "Rita Levi-Montalcini"
     ],
     correctIndex: 0,
-    image: "img/golgi_staining",
+    image: "img/golgi_staining.jpeg",
     imageAlt: "Microscopic image of neurons stained using the Golgi \"Black Reaction\" technique"
   },
   {
@@ -76,7 +76,7 @@ const QUESTIONS = [
       "Lucio Bini"
     ],
     correctIndex: 2,
-    image: "img/montalcini_lab",
+    image: "img/montalcini_lab.jpeg",
     imageAlt: "Portrait photograph of Rita Levi-Montalcini in her laboratory, surrounded by microscopes and scientific equipment"
   },
   {
@@ -88,7 +88,7 @@ const QUESTIONS = [
       "Rigidity"
     ],
     correctIndex: 0,
-    image: "img/mingazzini_sign",
+    image: "img/mingazzini_sign.jpeg",
     imageAlt: "Representation of the Mingazzini I maneuver, to assess subtle strength changes in the upper limbs"
   },
   {
@@ -100,7 +100,7 @@ const QUESTIONS = [
       "Marino Quarti Trevano"
     ],
     correctIndex: 0,
-    image: "img/mondino_institute",
+    image: "img/mondino_institute.jpeg",
     imageAlt: "Photograph of the façade of the Mondino Neurological Institute in Pavia"
   },
   {
@@ -112,7 +112,7 @@ const QUESTIONS = [
       "Ugo Cerletti"
     ],
     correctIndex: 0,
-    image: "img/alzheimer_plaques_tangles",
+    image: "img/alzheimer_plaques_tangles.jpeg",
     imageAlt: "Histopathological microscopy image showing amyloid plaques and neurofibrillary tangles in brain tissue"
   },
   {
@@ -124,7 +124,7 @@ const QUESTIONS = [
       "Heavy metal industrial toxins"
     ],
     correctIndex: 1,
-    image: "img/marchiafava_mri",
+    image: "img/marchiafava_mri.jpeg",
     imageAlt: "Brain MRI showing signal abnormality and necrosis of the corpus callosum in a patient with Marchiafava-Bignami disease"
   },
   {
@@ -136,7 +136,7 @@ const QUESTIONS = [
       "Vestibulocochlear Pathway"
     ],
     correctIndex: 1,
-    image: "img/sleep_eeg",
+    image: "img/sleep_eeg.jpeg",
     imageAlt: "Polysomnography EEG tracing showing different stages of sleep and wakefulness"
   },
   {
@@ -148,7 +148,7 @@ const QUESTIONS = [
       "Cesare Lombroso"
     ],
     correctIndex: 1,
-    image: "img/brainstem_pons",
+    image: "img/brainstem_pons.jpeg",
     imageAlt: "Anatomical illustration of the human brainstem, with the pons highlighted and labeled"
   },
   {
@@ -160,14 +160,14 @@ const QUESTIONS = [
       "Edoardo Bisiach"
     ],
     correctIndex: 1,
-    image: "img/cerletti_ect",
+    image: "img/cerletti_ect.jpeg",
     imageAlt: "Historical black-and-white photograph of Ugo Cerletti alongside early electroconvulsive therapy (ECT) equipment, circa 1938"
   },
   {
     question: "\"Mirror neurons\" were first discovered by researchers at which Italian university?",
     choices: ["Rome", "Milan", "Parma", "Pisa"],
     correctIndex: 2,
-    image: "img/mirror_neurons",
+    image: "img/mirror_neurons.jpeg",
     imageAlt: "Schematic diagram illustrating a mirror neuron firing both when an action is performed and when the same action is observed in another individual"
   },
   {
@@ -179,14 +179,14 @@ const QUESTIONS = [
       "Miguel Servet"
     ],
     correctIndex: 0,
-    image: "img/golgi_cells",
+    image: "img/golgi_cells.jpeg",
     imageAlt: "Immunofluorescence image of Golgi cerebellar cells"
   },
   {
     question: "In which Italian city was electroconvulsive therapy (ECT) first performed in 1938?",
     choices: ["Milan", "Turin", "Rome", "Naples"],
     correctIndex: 2,
-    image: "img/neurologia_sapienza",
+    image: "img/neurologia_sapienza.jpeg",
     imageAlt: "Historical photograph of the façade of the Istituto di Neurologia, Sapienza University — Policlinico Umberto I, Rome"
   },
   {
@@ -198,7 +198,7 @@ const QUESTIONS = [
       "Giuseppe Moruzzi"
     ],
     correctIndex: 0,
-    image: "img/visual_pathways",
+    image: "img/visual_pathways.jpeg",
     imageAlt: "Illustration of the occipital cortex and visual pathways, with the primary visual cortex (V1) highlighted in the posterior pole of the brain"
   },
   {
@@ -210,7 +210,7 @@ const QUESTIONS = [
       "Giuseppe Moruzzi"
     ],
     correctIndex: 1,
-    image: "img/head_turning_sign"
+    image: "img/head_turning_sign.jpeg"
   },
   {
     question: "Angelo Mosso, a 19th-century Italian physiologist in Turin, invented a device that recorded changes in brain blood flow during mental activity — a principle that foreshadows which modern neuroimaging technique?",
@@ -221,7 +221,7 @@ const QUESTIONS = [
       "Transcranial Magnetic Stimulation (TMS)"
     ],
     correctIndex: 1,
-    image: "img/mosso_portrait",
+    image: "img/mosso_portrait.jpeg",
     imageAlt: "Portrait photograph of Angelo Mosso"
   },
   {
@@ -233,7 +233,7 @@ const QUESTIONS = [
       "Leonardo Bianchi"
     ],
     correctIndex: 0,
-    image: "img/tamburini_portrait",
+    image: "img/tamburini_portrait.jpeg",
     imageAlt: "Portrait of Augusto Tamburini"
   },
   {
@@ -245,7 +245,7 @@ const QUESTIONS = [
       "Augusto Tamburini"
     ],
     correctIndex: 2,
-    image: "img/mingazzini_portrait",
+    image: "img/mingazzini_portrait.jpeg",
     imageAlt: "Historical portrait photograph of Giovanni Mingazzini, Italian neurologist"
   },
   {
@@ -257,7 +257,7 @@ const QUESTIONS = [
       "Identification of the extrapyramidal system"
     ],
     correctIndex: 1,
-    image: "img/cerebellum_diagram",
+    image: "img/cerebellum_diagram.jpeg",
     imageAlt: "Diagram of the cerebellum with functional areas labeled, highlighting the regions involved in muscle tone regulation and motor coordination"
   },
   {
@@ -269,7 +269,7 @@ const QUESTIONS = [
       "Piazza della Signoria, Florence"
     ],
     correctIndex: 1,
-    image: "img/bisiach_duomo_neglect",
+    image: "img/bisiach_duomo_neglect.jpeg",
     imageAlt: "Split illustration of Piazza del Duomo in Milan: the right half is shown in full detail while the left half is faded"
   },
   {
@@ -281,7 +281,7 @@ const QUESTIONS = [
       "Camillo Golgi"
     ],
     correctIndex: 1,
-    image: "img/derenzi_portrait",
+    image: "img/derenzi_portrait.jpeg",
     imageAlt: "Portrait photograph of Ennio De Renzi, Italian neuropsychologist"
   },
   {
@@ -293,7 +293,7 @@ const QUESTIONS = [
       "Beniamino Guidetti"
     ],
     correctIndex: 0,
-    image: "img/lombroso_painting",
+    image: "img/lombroso_painting.jpeg",
     imageAlt: "Historical portrait painting of Cesare Lombroso, Italian physician and criminologist"
   },
   {
@@ -305,7 +305,7 @@ const QUESTIONS = [
       "Alfredo Berardelli"
     ],
     correctIndex: 2,
-    image: "img/sin_logo",
+    image: "img/sin_logo.jpeg",
     imageAlt: "Official logo of the Società Italiana di Neurologia (SIN)"
   }
 ];
