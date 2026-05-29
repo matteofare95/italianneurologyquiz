@@ -28,7 +28,7 @@
    Add between 1 and ~50 questions. The quiz will use ALL of them.
    To randomise question order each game, set CONFIG.shuffleQuestions = true.
    ─────────────────────────────────────────────────────────────── */
-const questions = [
+const QUESTIONS = [
   {
     question: "Luigi Amaducci is best known for his contributions to which area of neurology?",
     choices: [
@@ -180,7 +180,7 @@ const questions = [
     ],
     correctIndex: 0,
     image: "img/golgi_cells",
-    imageAlt: "Microscopic image of Golgi-stained cerebellar cells, showing Purkinje neurons with their elaborate dendritic trees against a pale background"
+    imageAlt: "Immunofluorescence image of Golgi cerebellar cells"
   },
   {
     question: "In which Italian city was electroconvulsive therapy (ECT) first performed in 1938?",
@@ -210,7 +210,7 @@ const questions = [
       "Giuseppe Moruzzi"
     ],
     correctIndex: 1,
-    image: "img/head_turning_sign",
+    image: "img/head_turning_sign"
   },
   {
     question: "Angelo Mosso, a 19th-century Italian physiologist in Turin, invented a device that recorded changes in brain blood flow during mental activity — a principle that foreshadows which modern neuroimaging technique?",
