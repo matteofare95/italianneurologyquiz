@@ -619,18 +619,29 @@ function renderQuestion() {
   document.getElementById('question-text').textContent = q.question;
 
  // Question image
-  const imgWrapper = document.getElementById('question-image-wrapper');
-  const imgEl = document.getElementById('question-image');
+  const imgWrapper = document.getElementById("question-image-wrapper");
+const imgEl = document.getElementById("question-image");
+const captionEl = document.getElementById("question-image-caption");
 
-  if (q.image) {
-    imgWrapper.style.display = 'block';
-    imgEl.src = q.image;
-    imgEl.alt = q.imageAlt || 'Question illustration';
+if (q.image) {
+  imgWrapper.style.display = "block";
+  imgEl.src = q.image;
+  imgEl.alt = q.imageAlt || "Question illustration";
+
+  if (q.imageAlt && q.imageAlt.trim() !== "") {
+    captionEl.textContent = q.imageAlt;
+    captionEl.style.display = "block";
   } else {
-    imgWrapper.style.display = 'none';
-    imgEl.removeAttribute('src');
-    imgEl.alt = '';
+    captionEl.textContent = "";
+    captionEl.style.display = "none";
   }
+} else {
+  imgWrapper.style.display = "none";
+  imgEl.removeAttribute("src");
+  imgEl.alt = "";
+  captionEl.textContent = "";
+  captionEl.style.display = "none";
+}
 	
   // Build answer buttons
   const grid = document.getElementById('choices-grid');
