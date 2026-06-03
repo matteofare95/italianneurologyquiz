@@ -38,22 +38,19 @@ const QUESTIONS = [
       "Primary headaches"
     ],
     correctIndex: 1,
-    image: "img/amaducci_portrait.jpeg",
-    imageAlt: "Portrait photograph of Luigi Amaducci"
+    image: "img/amaducci_portrait.jpeg"
   },
   {
     question: "In which year was the Italian Society of Neurology (Società Italiana di Neurologia, SIN) founded as an independent society?",
     choices: ["1873", "1907", "1950", "1971"],
     correctIndex: 1,
-    image: "img/sin_historical_document.jpeg",
-    imageAlt: "Historical founding document of the Italian Society of Neurology (SIN), dated 1907"
+    image: "img/sin_historical_document.jpeg"
   },
   {
     question: "From which Italian city did the family originate in which the first pathogenic SNCA (alpha-synuclein) variant was identified?",
     choices: ["Contursi", "Eboli", "Tufariello", "Battipaglia"],
     correctIndex: 0,
-    image: "img/campania_map.jpeg",
-    imageAlt: "Map of the Campania region in southern Italy"
+    image: "img/campania_map.jpeg"
   },
   {
     question: "Which Italian scientist developed the \"Black Reaction\" staining method that revolutionized the study of the nervous system?",
@@ -64,8 +61,7 @@ const QUESTIONS = [
       "Rita Levi-Montalcini"
     ],
     correctIndex: 0,
-    image: "img/golgi_staining.jpeg",
-    imageAlt: "Microscopic image of neurons stained using the Golgi \"Black Reaction\" technique"
+    image: "img/golgi_staining.jpeg"
   },
   {
     question: "Which Italian scientist discovered the Nerve Growth Factor (NGF), leading to a Nobel Prize in 1986?",
@@ -76,8 +72,7 @@ const QUESTIONS = [
       "Lucio Bini"
     ],
     correctIndex: 2,
-    image: "img/montalcini_lab.jpeg",
-    imageAlt: "Portrait photograph of Rita Levi-Montalcini in her laboratory, surrounded by microscopes and scientific equipment"
+    image: "img/montalcini_lab.jpeg"
   },
   {
     question: "The clinical maneuver named after Italian neurologist Giovanni Mingazzini is primarily used to detect:",
@@ -88,8 +83,7 @@ const QUESTIONS = [
       "Rigidity"
     ],
     correctIndex: 0,
-    image: "img/mingazzini_sign.jpeg",
-    imageAlt: "Representation of the Mingazzini I maneuver, to assess subtle strength changes in the upper limbs"
+    image: "img/mingazzini_sign.jpeg"
   },
   {
     question: "Which Italian neurologist is credited with founding the integrated model of a university neurological clinic and neurological institute in Pavia?",
@@ -100,8 +94,7 @@ const QUESTIONS = [
       "Marino Quarti Trevano"
     ],
     correctIndex: 0,
-    image: "img/mondino_institute.jpeg",
-    imageAlt: "Photograph of the façade of the Mondino Neurological Institute in Pavia"
+    image: "img/mondino_institute.jpeg"
   },
   {
     question: "Which Italian researcher collaborated with Alois Alzheimer and co-authored the first descriptions of the histopathological hallmarks — neuritic plaques and neurofibrillary tangles — of Alzheimer's disease?",
@@ -112,8 +105,7 @@ const QUESTIONS = [
       "Ugo Cerletti"
     ],
     correctIndex: 0,
-    image: "img/alzheimer_plaques_tangles.jpeg",
-    imageAlt: "Histopathological microscopy image showing amyloid plaques and neurofibrillary tangles in brain tissue"
+    image: "img/alzheimer_plaques_tangles.jpeg"
   },
   {
     question: "Marchiafava-Bignami disease is a rare, progressive neurological disorder characterized by demyelination and necrosis of the corpus callosum. It was historically associated with the consumption of what specific substance?",
@@ -124,8 +116,7 @@ const QUESTIONS = [
       "Heavy metal industrial toxins"
     ],
     correctIndex: 1,
-    image: "img/marchiafava_mri.jpeg",
-    imageAlt: "Brain MRI showing signal abnormality and necrosis of the corpus callosum in a patient with Marchiafava-Bignami disease"
+    image: "img/marchiafava_mri.jpeg"
   },
   {
     question: "In 1949, Giuseppe Moruzzi and H.W. Magoun published landmark research that transformed our understanding of arousal and wakefulness. Which brainstem system did they describe?",
@@ -136,8 +127,7 @@ const QUESTIONS = [
       "Vestibulocochlear Pathway"
     ],
     correctIndex: 1,
-    image: "img/sleep_eeg.jpeg",
-    imageAlt: "Polysomnography EEG tracing showing different stages of sleep and wakefulness"
+    image: "img/sleep_eeg.jpeg"
   },
   {
     question: "Which Italian physician and anatomist first described the pons in the brainstem?",
@@ -148,8 +138,7 @@ const QUESTIONS = [
       "Cesare Lombroso"
     ],
     correctIndex: 1,
-    image: "img/brainstem_pons.jpeg",
-    imageAlt: "Anatomical illustration of the human brainstem, with the pons highlighted and labeled"
+    image: "img/brainstem_pons.jpeg"
   },
   {
     question: "Which Italian neurologist co-developed electroconvulsive therapy (ECT)?",
@@ -160,15 +149,13 @@ const QUESTIONS = [
       "Edoardo Bisiach"
     ],
     correctIndex: 1,
-    image: "img/cerletti_ect.jpeg",
-    imageAlt: "Historical black-and-white photograph of Ugo Cerletti alongside early electroconvulsive therapy (ECT) equipment, circa 1938"
+    image: "img/cerletti_ect.jpeg"
   },
   {
     question: "\"Mirror neurons\" were first discovered by researchers at which Italian university?",
-    choices: ["Rome", "Milan", "Parma", "Pisa"],
+    choices: ["Trieste", "Catania", "Parma", "Pisa"],
     correctIndex: 2,
-    image: "img/mirror_neurons.jpeg",
-    imageAlt: "Schematic diagram illustrating a mirror neuron firing both when an action is performed and when the same action is observed in another individual"
+    image: "img/mirror_neurons.jpeg"
   },
   {
     question: "Camillo Golgi shared the 1906 Nobel Prize with which Spanish neuroscientist?",
@@ -179,15 +166,13 @@ const QUESTIONS = [
       "Miguel Servet"
     ],
     correctIndex: 0,
-    image: "img/golgi_cells.jpeg",
-    imageAlt: "Immunofluorescence image of Golgi cerebellar cells"
+    image: "img/golgi_cells.jpeg"
   },
   {
     question: "In which Italian city was electroconvulsive therapy (ECT) first performed in 1938?",
     choices: ["Milan", "Turin", "Rome", "Naples"],
     correctIndex: 2,
-    image: "img/neurologia_sapienza.jpeg",
-    imageAlt: "Historical photograph of the façade of the Istituto di Neurologia, Sapienza University — Policlinico Umberto I, Rome"
+    image: "img/neurologia_sapienza.jpeg"
   },
   {
     question: "Which Italian neurologist first proposed that visual hallucinations arise from the spontaneous activation of the visual cortex?",
@@ -198,8 +183,7 @@ const QUESTIONS = [
       "Giuseppe Moruzzi"
     ],
     correctIndex: 0,
-    image: "img/visual_pathways.jpeg",
-    imageAlt: "Illustration of the occipital cortex and visual pathways, with the primary visual cortex (V1) highlighted in the posterior pole of the brain"
+    image: "img/visual_pathways.jpeg"
   },
   {
     question: "The \"Head-Turning Sign\", in which a patient turns toward a caregiver for help when answering questions during cognitive assessment, was first described by which Italian neurologist?",
@@ -221,8 +205,7 @@ const QUESTIONS = [
       "Transcranial Magnetic Stimulation (TMS)"
     ],
     correctIndex: 1,
-    image: "img/mosso_portrait.jpeg",
-    imageAlt: "Portrait photograph of Angelo Mosso"
+    image: "img/mosso_portrait.jpeg"
   },
   {
     question: "Which Italian physician first argued that epilepsy results from excessive cortical neuronal discharge, rather than supernatural causes?",
@@ -233,8 +216,7 @@ const QUESTIONS = [
       "Leonardo Bianchi"
     ],
     correctIndex: 0,
-    image: "img/tamburini_portrait.jpeg",
-    imageAlt: "Portrait of Augusto Tamburini"
+    image: "img/tamburini_portrait.jpeg"
   },
   {
     question: "Which Italian neurologist is notable for his early descriptions of what is now recognized as Parkinson's disease in Italy, as well as for his systematic work on tendon reflexes?",
@@ -245,8 +227,7 @@ const QUESTIONS = [
       "Augusto Tamburini"
     ],
     correctIndex: 2,
-    image: "img/mingazzini_portrait.jpeg",
-    imageAlt: "Historical portrait photograph of Giovanni Mingazzini, Italian neurologist"
+    image: "img/mingazzini_portrait.jpeg"
   },
   {
     question: "Which of the following best represents the Italian school's landmark contribution to cerebellar pathophysiology?",
@@ -257,8 +238,7 @@ const QUESTIONS = [
       "Identification of the extrapyramidal system"
     ],
     correctIndex: 1,
-    image: "img/cerebellum_diagram.jpeg",
-    imageAlt: "Diagram of the cerebellum with functional areas labeled, highlighting the regions involved in muscle tone regulation and motor coordination"
+    image: "img/cerebellum_diagram.jpeg"
   },
   {
     question: "Which famous Italian square was used by Edoardo Bisiach in the classic experiment that demonstrated neglect of imagined space?",
@@ -269,8 +249,7 @@ const QUESTIONS = [
       "Piazza della Signoria, Florence"
     ],
     correctIndex: 1,
-    image: "img/bisiach_duomo_neglect.jpeg",
-    imageAlt: "Split illustration of Piazza del Duomo in Milan: the right half is shown in full detail while the left half is faded"
+    image: "img/bisiach_duomo_neglect.jpeg"
   },
   {
     question: "Which Italian neurologist made seminal contributions to the study of aphasia, apraxia, and agnosia, establishing himself as a leading figure in European neuropsychology?",
@@ -281,8 +260,7 @@ const QUESTIONS = [
       "Camillo Golgi"
     ],
     correctIndex: 1,
-    image: "img/derenzi_portrait.jpeg",
-    imageAlt: "Portrait photograph of Ennio De Renzi, Italian neuropsychologist"
+    image: "img/derenzi_portrait.jpeg"
   },
   {
     question: "Who is considered one of the founding figures of modern Italian neurology and was associated with the early neurological school in Turin?",
@@ -293,8 +271,7 @@ const QUESTIONS = [
       "Beniamino Guidetti"
     ],
     correctIndex: 0,
-    image: "img/lombroso_painting.jpeg",
-    imageAlt: "Historical portrait painting of Cesare Lombroso, Italian physician and criminologist"
+    image: "img/lombroso_painting.jpeg"
   },
   {
     question: "Who is the current President of the Italian Society of Neurology (Società Italiana di Neurologia, SIN)?",
@@ -305,8 +282,60 @@ const QUESTIONS = [
       "Alfredo Berardelli"
     ],
     correctIndex: 2,
-    image: "img/sin_logo.jpeg",
-    imageAlt: "Official logo of the Società Italiana di Neurologia (SIN)"
+    image: "img/sin_logo.jpeg"
+  },
+  {
+    question: "In 1855 physiologist Bartolomeo Panizza made a landmark discovery on cortical localization. What did he demonstrate?",
+    choices: [
+      "That the cerebellum controls voluntary movement",
+      "That the occipital cortex is the cortical center for vision",
+      "That the optic nerve decussates completely at the optic chiasm",
+      "That visual hallucinations arise from the temporal lobe"
+    ],
+    correctIndex: 1,
+    image: "img/visual_pathways.jpeg"
+  },  
+  {
+    question: "How many training programmes in neurology are there in Italy? ",
+    choices: [
+      "32",
+      "27",
+      "39",
+      "50"
+    ],
+    correctIndex: 2,
+    image: "img/italy_map.jpeg"
+  },  
+  {
+    question: "Which of the following are among the main scientific and territorial structures of the Italian Society of Neurology (Società Italiana di Neurologia, SIN)?",
+    choices: [
+      "National Boards, Specialty Colleges, and Scientific Councils",
+      "Study Groups, Regional Sections, and Affiliated Autonomous Associations",
+      "Research Committees, Clinical Networks, and Educational Panels",
+      "European Committees, Task Forces, and Regional Academies"
+    ],
+    correctIndex: 1,
+  },
+  {
+    question: "Which city will host the 56th National Congress of the Italian Society of Neurology (Società Italiana di Neurologia, SIN) in 2026?",
+    choices: [
+      "Florence",
+      "Naples",
+      "Rome",
+      "Padua"
+    ],
+    correctIndex: 0,
+    image: "img/florence.jpeg"
+  },
+  {
+    question: "What is the official journal of the Italian Society of Neurology (Società Italiana di Neurologia, SIN)?",
+    choices: [
+      "Journal of Neurology",
+      "European Journal of Neurology",
+      "Neurological Sciences",
+      "Brain"
+    ],
+    correctIndex: 2
   }
 ];
   /*
@@ -326,12 +355,13 @@ const QUESTIONS = [
    2. CONFIG
    ─────────────────────────────────────────────────────────────── */
 const CONFIG = {
+  questionsPerGame: 10,   
   pointsPerCorrect:  100,        // points awarded for a correct answer
-  feedbackDelay:     1500,       // ms before advancing to next question
+  feedbackDelay:     2500,       // ms before advancing to next question
   maxLeaderboardEntries: 2000,     // max stored scores
   shuffleQuestions:  true,       // randomise order each game
   shuffleChoices:    true,      // if true, randomise choice order (keep false unless you re-map correctIndex)
-  questionTimeLimitMs: 10000,  // 10 seconds for question
+  questionTimeLimitMs: 20000,  // 20 seconds for question
   resetPassword: 'Cannella2026'
 };
 
@@ -341,6 +371,7 @@ const STORAGE_KEY = 'neurologyQuizScores'; // localStorage key
 /* ─────────────────────────────────────────────────────────────
    3. GAME STATE
    ─────────────────────────────────────────────────────────────── */
+let leaderboardRefreshTimer = null;
 const state = {
   nickname: '',
   questions: [],      // working copy (possibly shuffled)
@@ -468,12 +499,26 @@ const SCREENS = {
  */
 function showScreen(name) {
   Object.entries(SCREENS).forEach(([key, el]) => {
-    el.classList.toggle('active', key === name);
-    // Scroll back to top when switching screens
+    el.classList.toggle("active", key === name);
     if (key === name) el.scrollTop = 0;
   });
-}
 
+  // ── Leaderboard auto-refresh ──────────────────────────
+  if (name === "leaderboard") {
+    // Avvia il polling se non è già attivo
+    if (!leaderboardRefreshTimer) {
+      leaderboardRefreshTimer = setInterval(() => {
+        renderLeaderboard();
+      }, 10000);
+    }
+  } else {
+    // Ferma il polling quando si lascia la leaderboard
+    if (leaderboardRefreshTimer) {
+      clearInterval(leaderboardRefreshTimer);
+      leaderboardRefreshTimer = null;
+    }
+  }
+}
 
 /* ─────────────────────────────────────────────────────────────
    6. HOME SCREEN
@@ -589,9 +634,10 @@ function startQuiz() {
   state.currentIndex = 0;
   state.answered     = false;
 
-  // Build the question list (clone so we can shuffle safely)
-  state.questions = [...QUESTIONS];
-  if (CONFIG.shuffleQuestions) shuffle(state.questions);
+  // Mescola tutte le domande e prendi solo le prime questionsPerGame
+  const pool = [...QUESTIONS];
+  shuffle(pool);
+  state.questions = pool.slice(0, CONFIG.questionsPerGame);
 
   // Update static UI elements
   document.getElementById('quiz-player-name').textContent = state.nickname;
