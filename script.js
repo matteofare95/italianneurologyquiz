@@ -380,7 +380,8 @@ const state = {
   correctCount: 0,
   answered: false,    // prevents double-tap
   timerId: null,
-  questionStartTime: 0 // timestamp in ms
+  questionStartTime: 0, // timestamp in ms
+  leaderboardTab: 'today'
 };
 
 
@@ -872,25 +873,39 @@ function initLeaderboardScreen() {
   });
 
   // Tab switching
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  document.querySelectorAll('.tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    state.leaderboardTab = tab.dataset.tab;
 
-      const which = tab.dataset.tab; // 'today' | 'alltime'
-      document.getElementById('lb-today').classList.toggle('active',   which === 'today');
-      document.getElementById('lb-alltime').classList.toggle('active', which === 'alltime');
-    });
+    document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    document
+      .getElementById('lb-today')
+      .classList.toggle('active', state.leaderboardTab === 'today');
+
+    document
+      .getElementById('lb-alltime')
+      .classList.toggle('active', state.leaderboardTab === 'alltime');
   });
+});
 }
 
 /** Build and render both leaderboard panels. */
 async function renderLeaderboard() {
-  // Default to today tab
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-today').classList.add('active');
-  document.getElementById('lb-today').classList.add('active');
-  document.getElementById('lb-alltime').classList.remove('active');
+	document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+	document
+ 	 .getElementById('tab-today')
+ 	 .classList.toggle('active', state.leaderboardTab === 'today');
+	document
+	  .getElementById('tab-alltime')
+	  .classList.toggle('active', state.leaderboardTab === 'alltime');
+	document
+	  .getElementById('lb-today')
+	  .classList.toggle('active', state.leaderboardTab === 'today');
+	document
+	  .getElementById('lb-alltime')
+	  .classList.toggle('active', state.leaderboardTab === 'alltime');
 
   const today = await getTodayScores();
   const all = await getAllTimeScores();
