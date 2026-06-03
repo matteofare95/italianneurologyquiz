@@ -29,6 +29,11 @@
   
     // Initialize Firestore
     const db = firebase.firestore();
+
+    db.settings({
+      experimentalAutoDetectLongPolling: true,
+      useFetchStreams: false
+    });
   </script>
 </head>
 <body>
